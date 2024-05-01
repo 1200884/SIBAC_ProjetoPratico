@@ -25,15 +25,6 @@ then
 	$h.update();
 end
 
-rule "r3:Diminuicao de produtividade"
-@CF(-0.30)
-lock-on-active true
-when
-	Evidence( description == "Diminuicao de produtividade", value == "true" )
-then
-	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
-	$h.update();
-end
 
 rule "r3:Diminuicao de produtividade"
 @CF(-0.30)
@@ -44,6 +35,8 @@ then
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
    	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdacriacaoensacada", "true");
+   	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "envenenamento", "true");
+
 
 	$h.update();
 end
@@ -57,6 +50,8 @@ then
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdacriacaoensacada", "true");
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapiose", "true");
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
 
     $h.update();
 end
@@ -257,6 +252,136 @@ when
 then
     Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virose", "true");
 
+    $h.update();
+end
+
+rule "r27:Necrose e enegrecimento das traqueias das abelhas"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Necrose e enegrecimento das traqueias das abelhas", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapiose", "true");
+
+    $h.update();
+end
+
+rule "r28:Abdomen inchado"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Abdomen inchado", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapiose", "true");
+
+    $h.update();
+end
+
+rule "r29:Abelhas arrastando-se"
+@CF(-0.30)
+lock-on-active true
+when
+	Evidence( description == "Abelhas arrastando-se", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapiose", "true");
+
+    $h.update();
+end
+
+
+rule "r30:Abelhas mortas na entrada da colmeia"
+@CF(-0.30)
+lock-on-active true
+when
+	Evidence( description == "Abelhas mortas na entrada da colmeia", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapiose", "true");
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "envenenamento", "true");
+
+    $h.update();
+end
+
+rule "r31:Abelhas mortas em forma de cauda de cometa"
+@CF(-0.45)
+lock-on-active true
+when
+	Evidence( description == "Abelhas mortas em forma de cauda de cometa", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "envenenamento", "true");
+
+    $h.update();
+end
+
+rule "r32:Abelhas mortas em diferentes estados de desenvolvimento"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Abelhas mortas em diferentes estados de desenvolvimento", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "envenenamento", "true");
+
+    $h.update();
+end
+
+rule "r33:Abelhas mortas com a cabeça dentro das células"
+@CF(-0.45)
+lock-on-active true
+when
+	Evidence( description == "Abelhas mortas com a cabeça dentro das células", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
+
+    $h.update();
+end
+
+rule "r34:Diminuicao do tamanho das abelhas"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Diminuicao do tamanho das abelhas", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
+
+    $h.update();
+end
+
+rule "r35:Falta de reservas"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Falta de reservas", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
+    $h.update();
+end
+
+rule "r36:Perda de pelo"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Perda de pelos", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
+    $h.update();
+end
+
+rule "r37:Movimentos Bruscos e tremidos do corpo e asas das abelhas infetadas"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Perda de pelos", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
+    $h.update();
+end
+
+rule "r38:Aspeto luzidio e brilhante"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Aspeto luzidio e brilhante", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
     $h.update();
 end
 

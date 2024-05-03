@@ -1,0 +1,608 @@
+package org.engcia
+ 
+import org.engcia.cf.model.FactCF;
+import org.engcia.cf.model.Evidence;
+import org.engcia.cf.model.Hypothesis;
+import org.engcia.cf.listeners.TrackingAgendaListener;
+
+rule "r1:Acaros vermelhos nas abelhas"
+@CF(0.75)
+lock-on-active true
+when
+	Evidence( description == "Acaros vermelhos nas abelhas", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
+	if($h != null){
+		$h.update();
+	}
+end
+
+rule "r2:Deformidades nas asas"
+@CF(0.50)
+lock-on-active true
+when
+	Evidence( description == "Deformidades nas asas", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
+	if($h != null){
+		$h.update();
+	}
+end
+
+
+rule "r3:Diminuicao de produtividade"
+@CF(-0.30)
+lock-on-active true
+when
+	Evidence( description == "Diminuicao de produtividade", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
+   	Hypothesis $h3 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdacriacaoensacada", "true");
+   	Hypothesis $h4 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "envenenamento", "true");
+
+
+	if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+	if($h3 != null){
+		$h3.update();
+	}
+	if($h4 != null){
+		$h4.update();
+	}
+end
+
+rule "r4:Mortalidade aumentada"
+@CF(-0.30)
+lock-on-active true
+when
+	Evidence( description == "Mortalidade aumentada", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
+	Hypothesis $h3 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdacriacaoensacada", "true");
+    Hypothesis $h4 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapisose", "true");
+    Hypothesis $h5 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+	if($h3 != null){
+		$h3.update();
+	}
+	if($h4 != null){
+		$h4.update();
+	}
+	if($h5 != null){
+		$h5.update();
+	}
+end
+	
+
+
+rule "r6:Abdómen inchado"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Abdómen inchado", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapisose", "true");
+
+	if($h1 != null){
+		$h1.update();
+	}
+
+	if($h2 != null){
+		$h2.update();
+	}
+end
+
+rule "r12:Incapacidade de voar"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Incapacidade de voar", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
+	if($h != null){
+		$h.update();
+	}
+end
+
+rule "r7:Manchas escuras na colmeia"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Manchas escuras na colmeia", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+end
+
+rule "r13:Larvas mortas ou apodrecidas"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Larvas mortas ou apodrecidas", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+end
+
+rule "r14:Operculo deprimido ou perfurado"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Operculo deprimido ou perfurado", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+rule "r15:Criacao mal semeada"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Criacao mal semeada", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r16:Mau cheiro"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Mau cheiro (cheiro a cola de sapateiro)", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+end
+
+rule "r17:Teste do palito"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Teste do palito (formação de filamento visocoso de 1 a 2 cm de comprimento)", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+end
+
+rule "r18:Criacao mal semeada"
+@CF(-0.30)
+lock-on-active true
+when
+	Evidence( description == "Criacao mal semeada", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r14:Operculo afundado"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Operculo afundado", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r19:Larvas mumificadas"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Larvas mumificadas ou com aspeto engessado", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "ascosferiose", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+rule "r20:Operculos esburacados"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Operculos esburacados", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "ascosferiose", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+rule "r21:Criacao em mosaico"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Criacao em mosaico", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "ascosferiose", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+rule "r22:Ausencia de cheiro"
+@CF(-0.30)
+lock-on-active true
+when
+	Evidence( description == "Ausencia de cheiro", value == "true" )
+then
+	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "ascosferiose", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r23:Larvas Mortas num saco com liquido"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Larvas Mortas num saco com liquido", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdacriacaoensacada", "true");
+    Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virose", "true");
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+end
+
+rule "r24:Mudança de cor das larvas"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Mudança de cor das larvas", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virose", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r25:Escama castanha apos a morte da larva com forma de gondola"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Escama castanha apos a morte da larva com forma de gondola", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virose", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r26:Facilidade de remoção da escama da larva com um palito"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Facilidade de remoção da escama da larva com um palito", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virose", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r27:Necrose e enegrecimento das traqueias das abelhas"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Necrose e enegrecimento das traqueias das abelhas", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapisose", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r28:Abdomen inchado"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Abdomen inchado", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapisose", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r29:Abelhas arrastando-se"
+@CF(-0.30)
+lock-on-active true
+when
+	Evidence( description == "Abelhas arrastando-se", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapisose", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+
+rule "r30:Abelhas mortas na entrada da colmeia"
+@CF(-0.30)
+lock-on-active true
+when
+	Evidence( description == "Abelhas mortas na entrada da colmeia", value == "true" )
+then
+    Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapisose", "true");
+    Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "envenenamento", "true");
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+end
+
+rule "r31:Abelhas mortas em forma de cauda de cometa"
+@CF(-0.45)
+lock-on-active true
+when
+	Evidence( description == "Abelhas mortas em forma de cauda de cometa", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "envenenamento", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r32:Abelhas mortas em diferentes estados de desenvolvimento"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Abelhas mortas em diferentes estados de desenvolvimento", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "envenenamento", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r33:Abelhas mortas com a cabeça dentro das células"
+@CF(-0.45)
+lock-on-active true
+when
+	Evidence( description == "Abelhas mortas com a cabeça dentro das células", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r34:Diminuicao do tamanho das abelhas"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Diminuicao do tamanho das abelhas", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
+
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r35:Falta de reservas"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Falta de reservas", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r36:Perda de pelo"
+@CF(-0.75)
+lock-on-active true
+when
+	Evidence( description == "Perda de pelos", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r37:Movimentos Bruscos e tremidos do corpo e asas das abelhas infetadas"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Perda de pelos", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r38:Aspeto luzidio e brilhante"
+@CF(-0.60)
+lock-on-active true
+when
+	Evidence( description == "Aspeto luzidio e brilhante", value == "true" )
+then
+    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
+    if($h != null){
+		$h.update();
+	}
+end
+
+rule "r5:Inverno"
+@CF(-0.65)
+lock-on-active true
+when
+	Evidence( description == "Inverno", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
+	
+	if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+end
+
+rule "r11:Primavera"
+@CF(-0.40)
+lock-on-active true
+when
+	Evidence( description == "Primavera", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
+	Hypothesis $h3 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
+	Hypothesis $h4 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "ascosferiose", "true");
+
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+	if($h3 != null){
+		$h3.update();
+	}
+	if($h4 != null){
+		$h4.update();
+	}
+end
+rule "r8:Primavera"
+@CF(-0.30)
+lock-on-active true
+when
+	Evidence( description == "Primavera", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virose", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdacriacaoesacada", "true");
+    Hypothesis $h3 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+	if($h3 != null){
+		$h3.update();
+	}
+end
+rule "r9:Outono"
+@CF(-0.40)
+lock-on-active true
+when
+	Evidence( description == "Outono", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapisose", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
+	Hypothesis $h3 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
+	Hypothesis $h4 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "ascosferiose", "true");
+
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+	if($h3 != null){
+		$h3.update();
+	}
+	if($h4 != null){
+		$h4.update();
+	}
+end
+rule "r10:Verao"
+@CF(-0.30)
+lock-on-active true
+when
+	Evidence( description == "Verao", value == "true" )
+then
+	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virose", "true");
+	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdacriacaoesacada", "true");
+    Hypothesis $h3 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
+
+
+    if($h1 != null){
+		$h1.update();
+	}
+	if($h2 != null){
+		$h2.update();
+	}
+	if($h3 != null){
+		$h3.update();
+	}
+end

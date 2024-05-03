@@ -32,9 +32,9 @@ public class DroolsTest {
             // go !
             
             kSession.insert(new Hypothesis(0.0, "Diminuicao de produtividade", "true"));
-            kSession.insert(new Evidence(0.90, "Mortalidade aumentada", "true"));
-            kSession.insert(new Evidence(0.50, "Deformidades nas asas", "true"));
-            kSession.insert(new Evidence(0.95, "Acaros vermelhos nas abelhas", "true"));
+            kSession.insert(new Hypothesis(0.90, "Mortalidade aumentada", "true"));
+            kSession.insert(new Hypothesis(0.50, "Deformidades nas asas", "true"));
+            kSession.insert(new Hypothesis(0.95, "Acaros vermelhos nas abelhas", "true"));
             
             kSession.fireAllRules();
             

@@ -1,14 +1,13 @@
 package org.engcia.cfsample;
 
 //import org.drools.core.rule.builder.dialect.asm.ClassGenerator;
+import org.engcia.cf.listeners.FactListener;
+import org.engcia.cf.listeners.TrackingAgendaListener;
+import org.engcia.cf.model.Evidence;
+import org.engcia.cf.model.Hypothesis;
 import org.kie.api.KieServices;
-//import org.kie.api.event.rule.RuleRuntimeEventListener;
 import org.kie.api.runtime.KieContainer;
 import org.kie.api.runtime.KieSession;
-import org.engcia.cf.listeners.TrackingAgendaListener;
-import org.engcia.cf.model.Hypothesis;
-import org.engcia.cf.model.Evidence;
-import org.engcia.cf.listeners.FactListener;
 
 
 /**
@@ -31,10 +30,10 @@ public class DroolsTest {
 
             // go !
             
-            kSession.insert(new Hypothesis(0.0, "Diminuicao de produtividade", "true"));
-            kSession.insert(new Hypothesis(0.90, "Mortalidade aumentada", "true"));
-            kSession.insert(new Hypothesis(0.50, "Deformidades nas asas", "true"));
-            kSession.insert(new Hypothesis(0.95, "Acaros vermelhos nas abelhas", "true"));
+            kSession.insert(new Hypothesis(0.3,"Diminuicao de produtividade", "true"));
+            kSession.insert(new Evidence( 0.77,"Mortalidade aumentada", "true"));
+            kSession.insert(new Evidence( 0.5,"Deformidades nas asas", "true"));
+            kSession.insert(new Evidence( 0.30,"Acaros vermelhos nas abelhas", "true"));
             
             kSession.fireAllRules();
             

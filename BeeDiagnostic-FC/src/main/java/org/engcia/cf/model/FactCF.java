@@ -4,7 +4,7 @@ import org.kie.api.runtime.rule.FactHandle;
 import org.engcia.cf.listeners.TrackingAgendaListener;
 
 public class FactCF implements Comparable<FactCF>, Uncertainty {
-	private double cf;
+	protected double cf;
 	private String description;
 	private String value;
 

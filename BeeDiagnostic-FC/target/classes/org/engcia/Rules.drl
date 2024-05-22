@@ -6,7 +6,7 @@ import org.engcia.cf.model.Hypothesis;
 import org.engcia.cf.listeners.TrackingAgendaListener;
 
 rule "r1:Acaros vermelhos nas abelhas"
-@CF(0.75)
+@CF(-0.75)
 lock-on-active true
 when
 	Evidence( description == "Acaros vermelhos nas abelhas", value == "true" )
@@ -14,11 +14,13 @@ then
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
 	if($h != null){
 		$h.update();
+		$h.updateConfidence(-0.75);
+
 	}
 end
 
 rule "r2:Deformidades nas asas"
-@CF(0.50)
+@CF(-0.50)
 lock-on-active true
 when
 	Evidence( description == "Deformidades nas asas", value == "true" )
@@ -26,6 +28,8 @@ then
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
 	if($h != null){
 		$h.update();
+		$h.updateConfidence(-0.5);
+
 	}
 end
 
@@ -44,15 +48,22 @@ then
 
 	if($h1 != null){
 		$h1.update();
+		$h.updateConfidence(-0.3);
+
 	}
 	if($h2 != null){
-		$h2.update();
+		$h2.update();		$h.updateConfidence(-0.3);
+
 	}
 	if($h3 != null){
 		$h3.update();
+				$h.updateConfidence(-0.3);
+
 	}
 	if($h4 != null){
 		$h4.update();
+				$h.updateConfidence(-0.3);
+
 	}
 end
 
@@ -70,18 +81,24 @@ then
 
     if($h1 != null){
 		$h1.update();
+				$h.updateConfidence(-0.3);
+
 	}
 	if($h2 != null){
-		$h2.update();
+		$h2.update();		$h.updateConfidence(-0.3);
+
 	}
 	if($h3 != null){
-		$h3.update();
+		$h3.update();		$h.updateConfidence(-0.3);
+
 	}
 	if($h4 != null){
-		$h4.update();
+		$h4.update();		$h.updateConfidence(-0.3);
+
 	}
 	if($h5 != null){
-		$h5.update();
+		$h5.update();		$h.updateConfidence(-0.3);
+
 	}
 end
 	
@@ -97,11 +114,13 @@ then
 	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapisose", "true");
 
 	if($h1 != null){
-		$h1.update();
+		$h1.update();		$h1.updateConfidence(-0.75);
+
 	}
 
 	if($h2 != null){
 		$h2.update();
+		$h2.updateConfidence(-0.75);
 	}
 end
 
@@ -114,6 +133,7 @@ then
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
 	if($h != null){
 		$h.update();
+		$h.updateConfidence(-0.6);
 	}
 end
 
@@ -128,9 +148,11 @@ then
 
     if($h1 != null){
 		$h1.update();
+		$h1.updateConfidence(-0.6);
 	}
 	if($h2 != null){
 		$h2.update();
+		$h2.updateConfidence(-0.6);
 	}
 end
 
@@ -145,9 +167,13 @@ then
 
     if($h1 != null){
 		$h1.update();
+				$h1.updateConfidence(-0.6);
+
 	}
 	if($h2 != null){
 		$h2.update();
+				$h2.updateConfidence(-0.6);
+
 	}
 end
 
@@ -161,6 +187,8 @@ then
 
     if($h != null){
 		$h.update();
+				$h.updateConfidence(-0.6);
+
 	}
 end
 rule "r15:Criacao mal semeada"
@@ -172,7 +200,8 @@ then
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
 
     if($h != null){
-		$h.update();
+		$h.update();				$h.updateConfidence(-0.6);
+
 	}
 end
 
@@ -187,9 +216,13 @@ then
 
     if($h1 != null){
 		$h1.update();
+						$h1.updateConfidence(-0.75);
+
 	}
 	if($h2 != null){
 		$h2.update();
+								$h2.updateConfidence(-0.75);
+
 	}
 end
 
@@ -204,9 +237,13 @@ then
 
     if($h1 != null){
 		$h1.update();
+								$h1.updateConfidence(-0.75);
+
 	}
 	if($h2 != null){
 		$h2.update();
+								$h2.updateConfidence(-0.75);
+
 	}
 end
 
@@ -220,6 +257,8 @@ then
 
     if($h != null){
 		$h.update();
+								$h.updateConfidence(-0.3);
+
 	}
 end
 
@@ -233,6 +272,8 @@ then
 
     if($h != null){
 		$h.update();
+										$h.updateConfidence(-0.75);
+
 	}
 end
 
@@ -246,6 +287,8 @@ then
 
     if($h != null){
 		$h.update();
+												$h.updateConfidence(-0.75);
+
 	}
 end
 rule "r20:Operculos esburacados"
@@ -258,6 +301,8 @@ then
 
     if($h != null){
 		$h.update();
+												$h.updateConfidence(-0.6);
+
 	}
 end
 rule "r21:Criacao em mosaico"
@@ -270,6 +315,8 @@ then
 
     if($h != null){
 		$h.update();
+														$h.updateConfidence(-0.6);
+
 	}
 end
 rule "r22:Ausencia de cheiro"
@@ -282,6 +329,8 @@ then
 
     if($h != null){
 		$h.update();
+														$h.updateConfidence(-0.3);
+
 	}
 end
 
@@ -296,9 +345,13 @@ then
 
     if($h1 != null){
 		$h1.update();
+														$h1.updateConfidence(-0.75);
+
 	}
 	if($h2 != null){
 		$h2.update();
+																$h2.updateConfidence(-0.75);
+
 	}
 end
 
@@ -312,6 +365,8 @@ then
 
     if($h != null){
 		$h.update();
+																$h.updateConfidence(-0.75);
+
 	}
 end
 
@@ -325,6 +380,8 @@ then
 
     if($h != null){
 		$h.update();
+																$h.updateConfidence(-0.6);
+
 	}
 end
 
@@ -338,6 +395,8 @@ then
 
     if($h != null){
 		$h.update();
+																$h.updateConfidence(-0.6);
+
 	}
 end
 
@@ -351,6 +410,8 @@ then
 
     if($h != null){
 		$h.update();
+																$h.updateConfidence(-0.75);
+
 	}
 end
 
@@ -364,6 +425,8 @@ then
 
     if($h != null){
 		$h.update();
+																$h.updateConfidence(-0.6);
+
 	}
 end
 
@@ -377,6 +440,8 @@ then
 
     if($h != null){
 		$h.update();
+																$h.updateConfidence(-0.3);
+
 	}
 end
 
@@ -392,9 +457,13 @@ then
 
     if($h1 != null){
 		$h1.update();
+																$h1.updateConfidence(-0.3);
+
 	}
 	if($h2 != null){
 		$h2.update();
+																$h2.updateConfidence(-0.3);
+
 	}
 end
 
@@ -408,6 +477,8 @@ then
 
     if($h != null){
 		$h.update();
+			$h.updateConfidence(-0.45);
+
 	}
 end
 
@@ -421,6 +492,8 @@ then
 
     if($h != null){
 		$h.update();
+					$h.updateConfidence(-0.75);
+
 	}
 end
 
@@ -434,6 +507,8 @@ then
 
     if($h != null){
 		$h.update();
+					$h.updateConfidence(-0.45);
+
 	}
 end
 
@@ -447,6 +522,8 @@ then
 
     if($h != null){
 		$h.update();
+					$h.updateConfidence(-0.60);
+
 	}
 end
 
@@ -459,6 +536,8 @@ then
     Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
     if($h != null){
 		$h.update();
+					$h.updateConfidence(-0.75);
+
 	}
 end
 
@@ -471,6 +550,8 @@ then
     Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
     if($h != null){
 		$h.update();
+					$h.updateConfidence(-0.75);
+
 	}
 end
 
@@ -483,6 +564,8 @@ then
     Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
     if($h != null){
 		$h.update();
+					$h.updateConfidence(-0.60);
+
 	}
 end
 
@@ -495,6 +578,8 @@ then
     Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
     if($h != null){
 		$h.update();
+					$h.updateConfidence(-0.60);
+
 	}
 end
 
@@ -509,9 +594,13 @@ then
 	
 	if($h1 != null){
 		$h1.update();
+					$h1.updateConfidence(-0.65);
+
 	}
 	if($h2 != null){
 		$h2.update();
+					$h2.updateConfidence(-0.65);
+
 	}
 end
 
@@ -529,15 +618,20 @@ then
 
     if($h1 != null){
 		$h1.update();
+					$h1.updateConfidence(-0.40);
+
 	}
 	if($h2 != null){
 		$h2.update();
+		$h2.updateConfidence(-0.40);
 	}
 	if($h3 != null){
 		$h3.update();
+		$h3.updateConfidence(-0.40);
 	}
 	if($h4 != null){
 		$h4.update();
+		$h4.updateConfidence(-0.40);
 	}
 end
 rule "r8:Primavera"
@@ -552,12 +646,17 @@ then
 
     if($h1 != null){
 		$h1.update();
+		$h1.updateConfidence(-0.30);
 	}
 	if($h2 != null){
 		$h2.update();
+		$h2.updateConfidence(-0.30);
+
 	}
 	if($h3 != null){
 		$h3.update();
+		$h3.updateConfidence(-0.30);
+
 	}
 end
 rule "r9:Outono"
@@ -574,15 +673,23 @@ then
 
     if($h1 != null){
 		$h1.update();
+		$h1.updateConfidence(-0.40);
+
 	}
 	if($h2 != null){
 		$h2.update();
+				$h2.updateConfidence(-0.40);
+
 	}
 	if($h3 != null){
 		$h3.update();
+				$h3.updateConfidence(-0.40);
+
 	}
 	if($h4 != null){
 		$h4.update();
+				$h4.updateConfidence(-0.40);
+
 	}
 end
 rule "r10:Verao"
@@ -598,11 +705,17 @@ then
 
     if($h1 != null){
 		$h1.update();
+				$h1.updateConfidence(-0.30);
+
 	}
 	if($h2 != null){
 		$h2.update();
+				$h2.updateConfidence(-0.30);
+
 	}
 	if($h3 != null){
 		$h3.update();
+				$h3.updateConfidence(-0.30);
+
 	}
 end

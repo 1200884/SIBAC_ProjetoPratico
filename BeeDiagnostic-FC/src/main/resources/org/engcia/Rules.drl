@@ -12,6 +12,9 @@ when
 	$e: Evidence( description == "Acaros vermelhos nas abelhas", value == "true" )
 then
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
+	$h.update();
+	$h.updateConfidence(-0.75);
+
 	if($h != null){
 		$h.update();
 		$h.updateConfidence(-0.75);
@@ -28,6 +31,8 @@ when
 	$e: Evidence( description == "Deformidades nas asas", value == "true" )
 then
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
+	$h.update();
+		$h.updateConfidence(-0.5);
 	if($h != null){
 		$h.update();
 		$h.updateConfidence(-0.5);

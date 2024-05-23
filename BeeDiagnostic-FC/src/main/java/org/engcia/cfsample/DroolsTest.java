@@ -30,7 +30,7 @@ public class DroolsTest {
 
             // go !
             
-            kSession.insert(new Hypothesis(0.3,"Diminuicao de produtividade", "true"));
+            kSession.insert(new Hypothesis(0.0,"varroa", "true"));
             kSession.insert(new Evidence( 0.77,"Mortalidade aumentada", "true"));
             kSession.insert(new Evidence( 0.5,"Deformidades nas asas", "true"));
             kSession.insert(new Evidence( 0.30,"Acaros vermelhos nas abelhas", "true"));

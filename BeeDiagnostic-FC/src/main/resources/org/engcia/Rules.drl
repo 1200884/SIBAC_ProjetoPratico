@@ -15,7 +15,7 @@ then
 	if($h != null){
 		$h.update();
 		$h.updateConfidence(-0.75);
- 	$e.setCF(-0.75);
+ 	$e.setCf(-0.75);
 	        update($e);
 
 	}
@@ -31,7 +31,7 @@ then
 	if($h != null){
 		$h.update();
 		$h.updateConfidence(-0.5);
-	 	$e.setCF(-0.5);
+	 	$e.setCf(-0.5);
 	        update($e);
 
 	}
@@ -86,31 +86,31 @@ then
     if($h1 != null){
 		$h1.update();
 				$h1.updateConfidence(-0.3);
- 	$e.setCF(-0.3);
+ 	$e.setCf(-0.3);
 		        update($e);
 
 	}
 	if($h2 != null){
 		$h2.update();		$h2.updateConfidence(-0.3);
- 	 $e.setCF(-0.3);
+ 	 $e.setCf(-0.3);
 		        update($e);
 
 	}
 	if($h3 != null){
 		$h3.update();		$h3.updateConfidence(-0.3);
- 	$e.setCF(-0.3);
+ 	$e.setCf(-0.3);
 		        update($e);
 
 	}
 	if($h4 != null){
 		$h4.update();		$h4.updateConfidence(-0.3);
- 	$e.setCF(-0.3);
+ 	$e.setCf(-0.3);
 		        update($e);
 
 	}
 	if($h5 != null){
 		$h5.update();		$h5.updateConfidence(-0.3);
- 	$e.setCF(-0.3);
+ 	$e.setCf(-0.3);
 	        update($e);
 
 	}

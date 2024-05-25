@@ -56,17 +56,18 @@ then
 
 	}
 	if($h2 != null){
-		$h2.update();		$h2.updateConfidence(-0.3);
+		$h2.update();
+        $h2.updateConfidence(-0.3);
 
 	}
 	if($h3 != null){
 		$h3.update();
-				$h3.updateConfidence(-0.3);
+		$h3.updateConfidence(-0.3);
 
 	}
 	if($h4 != null){
 		$h4.update();
-				$h4.updateConfidence(-0.3);
+		$h4.updateConfidence(-0.3);
 
 	}
 end
@@ -85,26 +86,30 @@ then
 
     if($h1 != null){
 		$h1.update();
-				$h1.updateConfidence(-0.3);
+	    $h1.updateConfidence(-0.3);
 
 	}
 	if($h2 != null){
-		$h2.update();		$h2.updateConfidence(-0.3);
+		$h2.update();
+        $h2.updateConfidence(-0.3);
 
 
 	}
 	if($h3 != null){
-		$h3.update();		$h3.updateConfidence(-0.3);
+		$h3.update();
+        $h3.updateConfidence(-0.3);
 
 
 	}
 	if($h4 != null){
-		$h4.update();		$h4.updateConfidence(-0.3);
+		$h4.update();
+        $h4.updateConfidence(-0.3);
 
 
 	}
 	if($h5 != null){
-		$h5.update();		$h5.updateConfidence(-0.3);
+		$h5.update();
+        $h5.updateConfidence(-0.3);
 
 	}
 end
@@ -121,7 +126,8 @@ then
 	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapisose", "true");
 
 	if($h1 != null){
-		$h1.update();		$h1.updateConfidence(-0.75);
+		$h1.update();
+        $h1.updateConfidence(-0.75);
 
 	}
 
@@ -174,12 +180,12 @@ then
 
     if($h1 != null){
 		$h1.update();
-				$h1.updateConfidence(-0.6);
+		$h1.updateConfidence(-0.6);
 
 	}
 	if($h2 != null){
 		$h2.update();
-				$h2.updateConfidence(-0.6);
+		$h2.updateConfidence(-0.6);
 
 	}
 end
@@ -194,7 +200,7 @@ then
 
     if($h != null){
 		$h.update();
-				$h.updateConfidence(-0.6);
+		$h.updateConfidence(-0.6);
 
 	}
 end
@@ -207,7 +213,8 @@ then
 	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
 
     if($h != null){
-		$h.update();				$h.updateConfidence(-0.6);
+		$h.update();
+        $h.updateConfidence(-0.6);
 
 	}
 end
@@ -223,12 +230,12 @@ then
 
     if($h1 != null){
 		$h1.update();
-						$h1.updateConfidence(-0.75);
+		$h1.updateConfidence(-0.75);
 
 	}
 	if($h2 != null){
 		$h2.update();
-								$h2.updateConfidence(-0.75);
+		$h2.updateConfidence(-0.75);
 
 	}
 end
@@ -244,12 +251,12 @@ then
 
     if($h1 != null){
 		$h1.update();
-								$h1.updateConfidence(-0.75);
+		$h1.updateConfidence(-0.75);
 
 	}
 	if($h2 != null){
 		$h2.update();
-								$h2.updateConfidence(-0.75);
+	    $h2.updateConfidence(-0.75);
 
 	}
 end
@@ -264,7 +271,7 @@ then
 
     if($h != null){
 		$h.update();
-								$h.updateConfidence(-0.3);
+		$h.updateConfidence(-0.3);
 
 	}
 end
@@ -279,7 +286,7 @@ then
 
     if($h != null){
 		$h.update();
-										$h.updateConfidence(-0.75);
+		$h.updateConfidence(-0.75);
 
 	}
 end
@@ -294,7 +301,7 @@ then
 
     if($h != null){
 		$h.update();
-												$h.updateConfidence(-0.75);
+		$h.updateConfidence(-0.75);
 
 	}
 end
@@ -308,7 +315,7 @@ then
 
     if($h != null){
 		$h.update();
-												$h.updateConfidence(-0.6);
+	    $h.updateConfidence(-0.6);
 
 	}
 end
@@ -322,7 +329,7 @@ then
 
     if($h != null){
 		$h.update();
-														$h.updateConfidence(-0.6);
+        $h.updateConfidence(-0.6);
 
 	}
 end
@@ -336,7 +343,7 @@ then
 
     if($h != null){
 		$h.update();
-														$h.updateConfidence(-0.3);
+		$h.updateConfidence(-0.3);
 
 	}
 end
@@ -352,12 +359,12 @@ then
 
     if($h1 != null){
 		$h1.update();
-														$h1.updateConfidence(-0.75);
+	    $h1.updateConfidence(-0.75);
 
 	}
 	if($h2 != null){
 		$h2.update();
-																$h2.updateConfidence(-0.75);
+		$h2.updateConfidence(-0.75);
 
 	}
 end
@@ -372,7 +379,7 @@ then
 
     if($h != null){
 		$h.update();
-																$h.updateConfidence(-0.75);
+		$h.updateConfidence(-0.75);
 
 	}
 end
@@ -387,7 +394,7 @@ then
 
     if($h != null){
 		$h.update();
-																$h.updateConfidence(-0.6);
+		$h.updateConfidence(-0.6);
 
 	}
 end
@@ -402,7 +409,7 @@ then
 
     if($h != null){
 		$h.update();
-																$h.updateConfidence(-0.6);
+		$h.updateConfidence(-0.6);
 
 	}
 end
@@ -417,7 +424,7 @@ then
 
     if($h != null){
 		$h.update();
-																$h.updateConfidence(-0.75);
+		$h.updateConfidence(-0.75);
 
 	}
 end
@@ -432,7 +439,7 @@ then
 
     if($h != null){
 		$h.update();
-																$h.updateConfidence(-0.6);
+		$h.updateConfidence(-0.6);
 
 	}
 end
@@ -447,7 +454,7 @@ then
 
     if($h != null){
 		$h.update();
-																$h.updateConfidence(-0.3);
+		$h.updateConfidence(-0.3);
 
 	}
 end
@@ -464,12 +471,12 @@ then
 
     if($h1 != null){
 		$h1.update();
-																$h1.updateConfidence(-0.3);
+		$h1.updateConfidence(-0.3);
 
 	}
 	if($h2 != null){
 		$h2.update();
-																$h2.updateConfidence(-0.3);
+		$h2.updateConfidence(-0.3);
 
 	}
 end
@@ -484,7 +491,7 @@ then
 
     if($h != null){
 		$h.update();
-			$h.updateConfidence(-0.45);
+		$h.updateConfidence(-0.45);
 
 	}
 end
@@ -499,7 +506,7 @@ then
 
     if($h != null){
 		$h.update();
-					$h.updateConfidence(-0.75);
+		$h.updateConfidence(-0.75);
 
 	}
 end
@@ -514,7 +521,7 @@ then
 
     if($h != null){
 		$h.update();
-					$h.updateConfidence(-0.45);
+		$h.updateConfidence(-0.45);
 
 	}
 end
@@ -529,7 +536,7 @@ then
 
     if($h != null){
 		$h.update();
-					$h.updateConfidence(-0.60);
+		$h.updateConfidence(-0.60);
 
 	}
 end
@@ -543,7 +550,7 @@ then
     Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
     if($h != null){
 		$h.update();
-					$h.updateConfidence(-0.75);
+		$h.updateConfidence(-0.75);
 
 	}
 end
@@ -557,7 +564,7 @@ then
     Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
     if($h != null){
 		$h.update();
-					$h.updateConfidence(-0.75);
+		$h.updateConfidence(-0.75);
 
 	}
 end
@@ -571,7 +578,7 @@ then
     Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
     if($h != null){
 		$h.update();
-					$h.updateConfidence(-0.60);
+		$h.updateConfidence(-0.60);
 
 	}
 end
@@ -585,7 +592,7 @@ then
     Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "virusdaparalisiaaguda", "true");
     if($h != null){
 		$h.update();
-					$h.updateConfidence(-0.60);
+		$h.updateConfidence(-0.60);
 
 	}
 end
@@ -601,12 +608,12 @@ then
 	
 	if($h1 != null){
 		$h1.update();
-					$h1.updateConfidence(-0.65);
+		$h1.updateConfidence(-0.65);
 
 	}
 	if($h2 != null){
 		$h2.update();
-					$h2.updateConfidence(-0.65);
+		$h2.updateConfidence(-0.65);
 
 	}
 end
@@ -625,7 +632,7 @@ then
 
     if($h1 != null){
 		$h1.update();
-					$h1.updateConfidence(-0.40);
+		$h1.updateConfidence(-0.40);
 
 	}
 	if($h2 != null){
@@ -685,17 +692,17 @@ then
 	}
 	if($h2 != null){
 		$h2.update();
-				$h2.updateConfidence(-0.40);
+		$h2.updateConfidence(-0.40);
 
 	}
 	if($h3 != null){
 		$h3.update();
-				$h3.updateConfidence(-0.40);
+		$h3.updateConfidence(-0.40);
 
 	}
 	if($h4 != null){
 		$h4.update();
-				$h4.updateConfidence(-0.40);
+		$h4.updateConfidence(-0.40);
 
 	}
 end
@@ -712,17 +719,17 @@ then
 
     if($h1 != null){
 		$h1.update();
-				$h1.updateConfidence(-0.30);
+		$h1.updateConfidence(-0.30);
 
 	}
 	if($h2 != null){
 		$h2.update();
-				$h2.updateConfidence(-0.30);
+		$h2.updateConfidence(-0.30);
 
 	}
 	if($h3 != null){
 		$h3.update();
-				$h3.updateConfidence(-0.30);
+		$h3.updateConfidence(-0.30);
 
 	}
 end

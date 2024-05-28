@@ -31,11 +31,28 @@ public class DroolsTest {
             // go !
             
             kSession.insert(new Hypothesis(0.0,"varroa", "true"));
-            kSession.insert(new Evidence( 0.78,"Mortalidade aumentada", "true"));
-            kSession.insert(new Evidence( 0.5,"Deformidades nas asas", "true"));
-            kSession.insert(new Evidence( 0.5,"Diminuicao de produtividade", "true"));
-            kSession.insert(new Evidence( 0.30,"Acaros vermelhos nas abelhas", "true"));
+            kSession.insert(new Hypothesis(0.0,"nosemose", "true"));
+            kSession.insert(new Hypothesis(0.0,"virusdacriacaoensacada", "true"));
+            kSession.insert(new Hypothesis(0.0,"envenenamento", "true"));
+            kSession.insert(new Hypothesis(0.0,"fome", "true"));
+            kSession.insert(new Hypothesis(0.0,"acarapisose", "true"));
+            kSession.insert(new Hypothesis(0.0,"loqueeuropeia", "true"));
+            kSession.insert(new Hypothesis(0.0,"loqueamericana", "true"));
+            kSession.insert(new Hypothesis(0.0,"ascosferiose", "true"));
+            kSession.insert(new Hypothesis(0.0,"virose", "true"));
+            kSession.insert(new Hypothesis(0.0,"virusdaparalisiaaguda", "true"));
+            int CfObsMortalidadeAumentada,CfObsDeformidadesNasAsas,CfObsDiminuicaoDeProdutividade,CfObsAcarosVermelhosNasAbelhas,CfObsAbdomenInchado,CfObsIncapacidadeDeVoar,CfObsManchasEscurasNaColmeia,CfObsLarvasMortasOuApodrecidas,CfObsOperculoDeprimidoOuPerfurado,CfObsCriacaoMalSemeada,CfObsMauCheiro,CfObsTesteDoPalito,CfObsOperculoAfundado,CfObsLarvasMumificadas,CfObsOperculosEsburacados,CfObsCriacaoEmMosaico,CfObsAusenciaDeCheiro,CfObsLarvasMortasNumSacoComLiquido,CfObsMudançaDeCorLarvas,CfObsEscamaCastanhaAposAMorteDaLarvaEmFormaDeGondola,CfObsFacilidadeDeRemoçaoDaEscamaDaLarvaComUmPalito,CfObsNecroseEEnegrecimentoDasTraqueiasDasAbelhas,CfObsAbelhasArrastaremSe,CfObsAbelhasMortasNaEntradaDaColmeia,CfObsAbelhasMortasEmCaudaDeCometa,CfObsAblehasMortasEmDiferentesEstadosDeDesenvolvimento,CfObsAbelhasMortasComACabeçaDentroDasCelulas,CfObsDiminuicaoDoTamanhoDasAbelhas,CfObsFaltaDeReservas,CfObsPerdaDePelo,CfObsMovimentosTremidosDoCorpoEAsasDasAbelhasInfetadas,CfObsAspetoLuzidioEBrilhante;
+            final int CfObsVerao,CfObsInverno,CfObsPrimavera,CfObsOutono=1;
+            String estacao;
+            System.out.println("Olá, caro utilizador! Por favor responda às próximas perguntas com os detalhes do que observou");
+            System.out.println("-----------------------------------------------");
+            System.out.println("Em que estação do ano se encontra?");
             
+            if(estacao)
+            kSession.insert(new Evidence( 0.5,"Mortalidade aumentada", "true"));
+            kSession.insert(new Evidence( 0.5,"Deformidades nas asas", "true"));
+            kSession.insert(new Evidence(0.5,"Diminuicao de produtividade", "true"));
+            kSession.insert(new Evidence( 0.5,"Acaros vermelhos nas abelhas", "true"));
             kSession.fireAllRules();
             
         } catch (Throwable t) {

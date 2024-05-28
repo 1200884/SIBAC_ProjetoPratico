@@ -35,7 +35,7 @@ public class FactListener implements RuleRuntimeEventListener{
 				"Updated: " +
 				event.getObject().toString()
 				);
-		
+		System.out.println(event.getObject().toString());
 	}
 
 }

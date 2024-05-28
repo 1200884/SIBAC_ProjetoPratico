@@ -535,7 +535,7 @@ then
 end
 
 rule "r5:Inverno"
-@CF(-0.65)
+@CF(-0.55)
 lock-on-active true
 when
 	$e: Evidence( description == "Inverno", value == "true" )

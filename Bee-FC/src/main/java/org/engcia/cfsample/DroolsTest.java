@@ -92,19 +92,53 @@ public class DroolsTest {
                     for (Object obj : hypotheses) {
                         if (obj instanceof Hypothesis) {
                             Hypothesis hypothesis = (Hypothesis) obj;
-                            if (hypothesis.getDescription().equalsIgnoreCase("envenenamento")) {
+                            if (hypothesis.getDescription().equalsIgnoreCase("envenenamento") && (hypothesis.getCf() > 0.7)) {
                                 System.out.println("O coeficiente para 'envenenamento por pesticidas' é: " + hypothesis.getCf());
-                                if (hypothesis.getCf() > 0.7) {
-                                    System.out.println("Diagnóstico Finalizado! Trata-se de envenenamento");
-                                    System.exit(0);
-                                }
-
+                                System.out.println("Diagnóstico Finalizado! Trata-se de envenenamento");
+                                System.exit(0);
+                            }
+                        }
+                    }
+                    System.out.println("Foi verificada uma quebra de vigor na colónia?");
+                    DiminuicaoDeProdutividade = scanner.nextLine();
+                    System.out.println("Quanta certeza tem desta observação? (Pouca/Muita/Intermedia)");
+                    GrauDeCerteza = scanner.nextLine();
+                    if (DiminuicaoDeProdutividade.equals("Sim")) {
+                        kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "Diminuicao de produtividade", "true"));
+                        kSession.fireAllRules();
+                    }
+                    for (Object obj : hypotheses) {
+                        if (obj instanceof Hypothesis) {
+                            Hypothesis hypothesis = (Hypothesis) obj;
+                            if (hypothesis.getDescription().equalsIgnoreCase("envenenamento") && (hypothesis.getCf() > 0.7)) {
+                                System.out.println("O coeficiente para 'envenenamento por pesticidas' é: " + hypothesis.getCf());
+                                System.out.println("Diagnóstico Finalizado! Trata-se de envenenamento");
+                                System.exit(0);
                             }
                         }
                     }
 
                 } else {
-
+                    kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Abelhas mortas em forma de cauda de cometa", "true"));
+                    kSession.fireAllRules();
+                    System.out.println("Foi verificada uma quebra de vigor na colónia?");
+                    DiminuicaoDeProdutividade = scanner.nextLine();
+                    System.out.println("Quanta certeza tem desta observação? (Pouca/Muita/Intermedia)");
+                    GrauDeCerteza = scanner.nextLine();
+                    if (DiminuicaoDeProdutividade.equals("Sim")) {
+                        kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "Diminuicao de produtividade", "true"));
+                        kSession.fireAllRules();
+                    }
+                    for (Object obj : hypotheses) {
+                        if (obj instanceof Hypothesis) {
+                            Hypothesis hypothesis = (Hypothesis) obj;
+                            if (hypothesis.getDescription().equalsIgnoreCase("envenenamento") && (hypothesis.getCf() > 0.7)) {
+                                System.out.println("O coeficiente para 'envenenamento por pesticidas' é: " + hypothesis.getCf());
+                                System.out.println("Diagnóstico Finalizado! Trata-se de envenenamento");
+                                System.exit(0);
+                            }
+                        }
+                    }
                 }
 
             } else {
@@ -122,8 +156,6 @@ public class DroolsTest {
         }
     }
 
-
-    
     public static double CheckGrauCerteza(String grauCerteza) {
         if (grauCerteza.equals("Pouca")) {
             return 0.40;

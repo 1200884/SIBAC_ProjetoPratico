@@ -902,7 +902,6 @@ public class DroolsTest {
                 }
             }
             //nosemose
-            
 
             System.out.println("Foi verificado o abdómen das abelhas inchado?");
             AbdomenInchado = scanner.nextLine();
@@ -929,7 +928,7 @@ public class DroolsTest {
                                 System.exit(0);
                             }
                         }
-                    } 
+                    }
                 } else {
                     kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Incapacidade de voar", "true"));
                     kSession.fireAllRules();
@@ -942,7 +941,7 @@ public class DroolsTest {
                                 System.exit(0);
                             }
                         }
-                    } 
+                    }
                 }
                 if (perguntaManchasEscuras == false) {
                     System.out.println("Foram identificadas manchas escuras na colmeia?");
@@ -962,7 +961,7 @@ public class DroolsTest {
                                     System.exit(0);
                                 }
                             }
-                        } 
+                        }
                     } else {
                         kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Manchas escuras na colmeia", "true"));
                         kSession.fireAllRules();
@@ -975,7 +974,7 @@ public class DroolsTest {
                                     System.exit(0);
                                 }
                             }
-                        } 
+                        }
                     }
                 }
                 if (perguntaDiminuicaoProdutividade == false) {
@@ -996,7 +995,7 @@ public class DroolsTest {
                                     System.exit(0);
                                 }
                             }
-                        } 
+                        }
                     } else {
                         kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Diminuicao de produtividade", "true"));
                         kSession.fireAllRules();
@@ -1009,7 +1008,7 @@ public class DroolsTest {
                                     System.exit(0);
                                 }
                             }
-                        } 
+                        }
                     }
                 }
 
@@ -1031,7 +1030,7 @@ public class DroolsTest {
                                     System.exit(0);
                                 }
                             }
-                        } 
+                        }
                     } else {
                         kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Mortalidade aumentada", "true"));
                         kSession.fireAllRules();
@@ -1044,35 +1043,178 @@ public class DroolsTest {
                                     System.exit(0);
                                 }
                             }
-                        } 
+                        }
                     }
                 }
             } else {
                 kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Abdomen inchado", "true"));
                 kSession.fireAllRules();
             }
+            /* */
+            //Varroa 
+            System.out.println("Foram identificados ácaros vermelhos nas abelhas?");
+            AcarosVermelhosNasAbelhas = scanner.nextLine();
+            System.out.println("Quanta certeza tem desta observação? (Pouca/Muita/Intermedia)?");
+            GrauDeCerteza = scanner.nextLine();
+            if (AcarosVermelhosNasAbelhas.equals("Sim")) {
+                kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "Acaros vermelhos nas abelhas", "true"));
+                kSession.fireAllRules();
+                System.out.println("Foram idenfiticadas deformidades nas asas?");
+                DeformidadesNasAsas = scanner.nextLine();
+                System.out.println("Quanta certeza tem desta observação? (Pouca/Muita/Intermedia)?");
+                GrauDeCerteza = scanner.nextLine();
+                if (DeformidadesNasAsas.equals("Sim")) {
+                    kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "Deformidades nas asas", "true"));
+                    kSession.fireAllRules();
+                    for (Object obj : hypotheses) {
+                        if (obj instanceof Hypothesis) {
+                            Hypothesis hypothesis = (Hypothesis) obj;
+                            if (hypothesis.getDescription().equalsIgnoreCase("varroa") && (hypothesis.getCf() > 0.7)) {
+                                System.out.println("O coeficiente para 'varroa' é: " + hypothesis.getCf());
+                                System.out.println("Diagnóstico Finalizado! Trata-se de varroa");
+                                System.exit(0);
+                            }
+                        }
+                    }
+                } else {
+                    kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Deformidades nas asas", "true"));
+                    kSession.fireAllRules();
+                    for (Object obj : hypotheses) {
+                        if (obj instanceof Hypothesis) {
+                            Hypothesis hypothesis = (Hypothesis) obj;
+                            if (hypothesis.getDescription().equalsIgnoreCase("varroa") && (hypothesis.getCf() > 0.7)) {
+                                System.out.println("O coeficiente para 'varroa' é: " + hypothesis.getCf());
+                                System.out.println("Diagnóstico Finalizado! Trata-se de varroa");
+                                System.exit(0);
+                            }
+                        }
+                    }
+                }
+                for (Object obj : hypotheses) {
+                    if (obj instanceof Hypothesis) {
+                        Hypothesis hypothesis = (Hypothesis) obj;
+                        if (hypothesis.getDescription().equalsIgnoreCase("varroa") && (hypothesis.getCf() > 0.7)) {
+                            System.out.println("O coeficiente para 'varroa' é: " + hypothesis.getCf());
+                            System.out.println("Diagnóstico Finalizado! Trata-se de varroa");
+                            System.exit(0);
+                        }
+                    }
+                }
+                if (perguntaDiminuicaoProdutividade == false) {
+                    System.out.println("Foi verificada uma quebra de produtividade na colónia?");
+                    DiminuicaoDeProdutividade = scanner.nextLine();
+                    perguntaDiminuicaoProdutividade = true;
+                    System.out.println("Quanta certeza tem desta observação? (Pouca/Muita/Intermedia)?");
+                    GrauDeCerteza = scanner.nextLine();
+                    if (DiminuicaoDeProdutividade.equals("Sim")) {
+                        kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "Diminuicao de produtividade", "true"));
+                        kSession.fireAllRules();
+                        for (Object obj : hypotheses) {
+                            if (obj instanceof Hypothesis) {
+                                Hypothesis hypothesis = (Hypothesis) obj;
+                                if (hypothesis.getDescription().equalsIgnoreCase("varroa") && (hypothesis.getCf() > 0.7)) {
+                                    System.out.println("O coeficiente para 'varroa' é: " + hypothesis.getCf());
+                                    System.out.println("Diagnóstico Finalizado! Trata-se de varroa");
+                                    System.exit(0);
+                                }
+                            }
+                        }
+                    } else {
+                        kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Diminuicao de produtividade", "true"));
+                        kSession.fireAllRules();
+                        for (Object obj : hypotheses) {
+                            if (obj instanceof Hypothesis) {
+                                Hypothesis hypothesis = (Hypothesis) obj;
+                                if (hypothesis.getDescription().equalsIgnoreCase("varroa") && (hypothesis.getCf() > 0.7)) {
+                                    System.out.println("O coeficiente para 'varroa' é: " + hypothesis.getCf());
+                                    System.out.println("Diagnóstico Finalizado! Trata-se de varroa");
+                                    System.exit(0);
+                                }
+                            }
+                        }
+                    }
+                }
+                if (perguntaMortalidadeAumentada == false) {
+                    System.out.println("Foi notada uma diminuição na população de abelhas?");
+                    DiminuicaoPopulacao = scanner.nextLine();
+                    perguntaMortalidadeAumentada = true;
+                    System.out.println("Quanta certeza tem desta observação? (Pouca/Muita/Intermedia)?");
+                    GrauDeCerteza = scanner.nextLine();
+                    if (DiminuicaoPopulacao.equals("Sim")) {
+                        kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "Mortalidade aumentada", "true"));
+                        kSession.fireAllRules();
+                        for (Object obj : hypotheses) {
+                            if (obj instanceof Hypothesis) {
+                                Hypothesis hypothesis = (Hypothesis) obj;
+                                if (hypothesis.getDescription().equalsIgnoreCase("varroa") && (hypothesis.getCf() > 0.7)) {
+                                    System.out.println("O coeficiente para 'varroa' é: " + hypothesis.getCf());
+                                    System.out.println("Diagnóstico Finalizado! Trata-se de varroa");
+                                    System.exit(0);
+                                }
+                            }
+                        }
+                    } else {
+                        kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Mortalidade aumentada", "true"));
+                        kSession.fireAllRules();
+                        for (Object obj : hypotheses) {
+                            if (obj instanceof Hypothesis) {
+                                Hypothesis hypothesis = (Hypothesis) obj;
+                                if (hypothesis.getDescription().equalsIgnoreCase("varroa") && (hypothesis.getCf() > 0.7)) {
+                                    System.out.println("O coeficiente para 'varroa' é: " + hypothesis.getCf());
+                                    System.out.println("Diagnóstico Finalizado! Trata-se de varroa");
+                                    System.exit(0);
+                                }
+                            }
+                        }
+                    }
+                }
 
-           //Varroa 
-           System.out.println("Foram identificados ácaros vermelhos nas abelhas?");
-           AcarosVermelhosNasAbelhas=scanner.nextLine();
-           System.out.println("Quanta certeza tem desta observação? (Pouca/Muita/Intermedia)?");
-           GrauDeCerteza = scanner.nextLine();
-        } catch (Throwable t) {
-            t.printStackTrace();
+            } else {
+                kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Acaros vermelhos nas abelhas", "true"));
+                kSession.fireAllRules();
+            }
+            //Acarapiose
+            System.out.println("Foi verificada necrose e/ou enegrecimento das traqueias das abelhas?");
+            NecroseEEnegrecimentoDasTraqueiasDasAbelhas = scanner.nextLine();
+            System.out.println("Quanta certeza tem desta observação? (Pouca/Muita/Intermedia)?");
+            GrauDeCerteza = scanner.nextLine();
+            if (NecroseEEnegrecimentoDasTraqueiasDasAbelhas.equals("Sim")) {
+                kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "Necrose e enegrecimento das traqueias das abelhass", "true"));
+                kSession.fireAllRules();
+                if (perguntaAbdomenInchado == false) {
+                    System.out.println("Foi verificado o abdómen das abelhas inchado?");
+                    AbdomenInchado = scanner.nextLine();
+                    perguntaAbdomenInchado = true;
+                    System.out.println("Quanta certeza tem desta observação? (Pouca/Muita/Intermedia)?");
+                    GrauDeCerteza = scanner.nextLine();
+                    if (AbdomenInchado.equals("Sim")) {
+                        kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "Abdomen inchado", "true"));
+                        kSession.fireAllRules();
+                    } else {
+                        kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Abdomen inchado", "true"));
+                        kSession.fireAllRules();
+                    }
+                }
+                
+            } else {
+                kSession.insert(new Evidence(CheckGrauCerteza(GrauDeCerteza), "N Necrose e enegrecimento das traqueias das abelhass", "true"));
+                kSession.fireAllRules();
+            }
+            
+            } catch (Throwable t) {
+                t.printStackTrace();
+            }
         }
-    }
-
-    public static double CheckGrauCerteza(String grauCerteza) {
-        if (grauCerteza.equalsIgnoreCase("Pouca")) {
-            return 0.40;
+            public static double CheckGrauCerteza(String grauCerteza) {
+                if (grauCerteza.equalsIgnoreCase("Pouca")) {
+                    return 0.40;
+                }
+                if (grauCerteza.equalsIgnoreCase("Intermedia")) {
+                    return 0.70;
+                }
+                if (grauCerteza.equalsIgnoreCase("Muita")) {
+                    return 0.90;
+                }
+                return 0.0;
+            }
         }
-        if (grauCerteza.equalsIgnoreCase("Intermedia")) {
-            return 0.70;
-        }
-        if (grauCerteza.equalsIgnoreCase("Muita")) {
-            return 0.90;
-        }
-        return 0.0;
-    }
-
-}

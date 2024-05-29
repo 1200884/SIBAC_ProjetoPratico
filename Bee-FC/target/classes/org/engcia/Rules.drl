@@ -140,7 +140,7 @@ then
 end
 
 rule "r13:Larvas mortas ou apodrecidas"
-@CF(0.60)
+@CF(0.40)
 lock-on-active true
 when
 	$e: Evidence( description == "Larvas mortas ou apodrecidas", value == "true" )
@@ -172,7 +172,7 @@ then
 	}
 end
 rule "r15:Criacao mal semeada"
-@CF(0.60)
+@CF(0.40)
 lock-on-active true
 when
 	$e: Evidence( description == "Criacao mal semeada", value == "true" )
@@ -184,8 +184,8 @@ then
 	}
 end
 
-rule "r16:Mau cheiro"
-@CF(0.75)
+rule "r16:Mau cheiro (cheiro a cola de sapateiro)"
+@CF(0.55)
 lock-on-active true
 when
 	$e: Evidence( description == "Mau cheiro (cheiro a cola de sapateiro)", value == "true" )
@@ -203,11 +203,11 @@ then
 	}
 end
 
-rule "r17:Teste do palito"
-@CF(0.75)
+rule "r17:Teste do palito (formacao de filamento visocoso de 1 a 2 cm de comprimento)"
+@CF(0.55)
 lock-on-active true
 when
-	$e: Evidence( description == "Teste do palito (formação de filamento visocoso de 1 a 2 cm de comprimento)", value == "true" )
+	$e: Evidence( description == "Teste do palito (formacao de filamento visocoso de 1 a 2 cm de comprimento)", value == "true" )
 then
 	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
 	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
@@ -237,7 +237,7 @@ then
 end
 
 rule "r14:Operculo afundado"
-@CF(0.75)
+@CF(0.55)
 lock-on-active true
 when
 	$e: Evidence( description == "Operculo afundado", value == "true" )
@@ -792,7 +792,7 @@ then
 end
 
 rule "rN13:N Larvas mortas ou apodrecidas"
-@CF(-0.60)
+@CF(-0.40)
 lock-on-active true
 when
 	$e: Evidence( description == "N Larvas mortas ou apodrecidas", value == "true" )
@@ -824,7 +824,7 @@ then
 	}
 end
 rule "rN15:N Criacao mal semeada"
-@CF(-0.60)
+@CF(-0.40)
 lock-on-active true
 when
 	$e: Evidence( description == "N Criacao mal semeada", value == "true" )
@@ -836,8 +836,8 @@ then
 	}
 end
 
-rule "rN16:N Mau cheiro"
-@CF(-0.75)
+rule "rN16:N Mau cheiro (cheiro a cola de sapateiro)"
+@CF(-0.55)
 lock-on-active true
 when
 	$e: Evidence( description == "N Mau cheiro (cheiro a cola de sapateiro)", value == "true" )
@@ -855,11 +855,11 @@ then
 	}
 end
 
-rule "rN17:N Teste do palito"
-@CF(-0.75)
+rule "rN17:N Teste do palito (formacao de filamento visocoso de 1 a 2 cm de comprimento)"
+@CF(-0.55)
 lock-on-active true
 when
-	$e: Evidence( description == "N Teste do palito (formação de filamento visocoso de 1 a 2 cm de comprimento)", value == "true" )
+	$e: Evidence( description == "N Teste do palito (formacao de filamento visocoso de 1 a 2 cm de comprimento)", value == "true" )
 then
 	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
 	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
@@ -889,7 +889,7 @@ then
 end
 
 rule "rN14:N Operculo afundado"
-@CF(-0.75)
+@CF(-0.55)
 lock-on-active true
 when
 	$e: Evidence( description == "N Operculo afundado", value == "true" )

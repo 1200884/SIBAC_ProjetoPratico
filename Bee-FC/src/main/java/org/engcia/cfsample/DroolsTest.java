@@ -44,31 +44,37 @@ public class DroolsTest {
             final int CfObsVerao = 1, CfObsInverno = 1, CfObsPrimavera = 1, CfObsOutono = 1;
             String estacao, GrauDeCerteza;
             String MortalidadeAumentada, DiminuicaoPopulacao, AbelhasMortasDiferentesFasesDeDesenvolvimento, DeformidadesNasAsas, DiminuicaoDeProdutividade, AcarosVermelhosNasAbelhas, AbdomenInchado, IncapacidadeDeVoar, ManchasEscurasNaColmeia, LarvasMortasOuApodrecidas, OperculoDeprimidoOuPerfurado, CriacaoMalSemeada, FacilidadeRemocaoEscama, MauCheiro, TesteDoPalito, OperculoAfundado, LarvasMumificadas, OperculosEsburacados, CriacaoEmMosaico, AusenciaDeCheiro, LarvasMortasNumSacoComLiquido, MudançaDeCorLarvas, EscamaCastanhaAposAMorteDaLarvaEmFormaDeGondola, NecroseEEnegrecimentoDasTraqueiasDasAbelhas, AbelhasArrastaremSe, AbelhasMortasNaEntradaDaColmeia, AbelhasMortasEmCaudaDeCometa, AblehasMortasEmDiferentesEstadosDeDesenvolvimento, AbelhasMortasComACabeçaDentroDasCelulas, DiminuicaoDoTamanhoDasAbelhas, FaltaDeReservas, PerdaDePelo, MovimentosTremidosDoCorpoEAsasDasAbelhasInfetadas, AspetoLuzidioEBrilhante;
-            int b = 0;
+            boolean b = true;
             boolean perguntaDiminuicaoProdutividade = false, perguntaMortalidadeAumentada = false, perguntaAbdomenInchado = false, perguntaIncapacidadeVoar = false, perguntaManchasEscuras = false;
             System.out.println("Olá, caro utilizador! Por favor responda às próximas perguntas com os detalhes do que observou");
             System.out.println("-----------------------------------------------");
+            while(b==true){
             System.out.println("Em que estação do ano se encontra?");
             estacao = scanner.nextLine();
             if (estacao.equalsIgnoreCase("Verão")) {
                 kSession.insert(new Evidence(CfObsVerao, "Verao", "true"));
                 kSession.fireAllRules();
+                b=false;
 
             }
             if (estacao.equalsIgnoreCase("Inverno")) {
                 kSession.insert(new Evidence(CfObsInverno, "Inverno", "true"));
                 kSession.fireAllRules();
+                b=false;
 
             }
             if (estacao.equalsIgnoreCase("Outono")) {
                 kSession.insert(new Evidence(CfObsOutono, "Outono", "true"));
                 kSession.fireAllRules();
+                b=false;
 
             }
             if (estacao.equalsIgnoreCase("Primavera")) {
                 kSession.insert(new Evidence(CfObsPrimavera, "Primavera", "true"));
                 kSession.fireAllRules();
+                b=false;
             }
+        }
             // Envenenamento por pesticidas
             System.out.println("Foram verificadas abelhas mortas dentro da colmeia em diferentes estados de desenvolvimento?");
             AbelhasMortasDiferentesFasesDeDesenvolvimento = scanner.nextLine();

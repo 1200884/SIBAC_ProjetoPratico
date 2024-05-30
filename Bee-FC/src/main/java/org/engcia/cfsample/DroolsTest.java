@@ -74,6 +74,7 @@ public class DroolsTest {
                 kSession.fireAllRules();
                 b=false;
             }
+            System.out.println("Por favor introduza uma estação do ano.");
         }
             // Envenenamento por pesticidas
             System.out.println("Foram verificadas abelhas mortas dentro da colmeia em diferentes estados de desenvolvimento?");

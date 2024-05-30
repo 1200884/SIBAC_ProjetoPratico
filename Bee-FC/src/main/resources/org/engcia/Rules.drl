@@ -84,10 +84,7 @@ then
 		$h4.update();	
 
 	}
-	if($h5 != null){
-		$h5.update();		
-
-	}
+	
 end
 	
 

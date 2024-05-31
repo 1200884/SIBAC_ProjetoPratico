@@ -1269,7 +1269,7 @@ public class DroolsTest {
                 kSession.fireAllRules();
             }
             //Ascosferiose
-            System.out.println("Foram verificadas larvas mumificadas ou com aspeto engessado");
+            System.out.println("Foram verificadas larvas mumificadas ou com aspeto engessado?");
             LarvasMumificadas = scanner.nextLine();
             System.out.println("Quanta certeza tem desta observação? (Pouca/Muita/Intermedia)?");
             GrauDeCerteza = scanner.nextLine();

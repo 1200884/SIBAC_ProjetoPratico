@@ -69,20 +69,15 @@ then
 
     if($h1 != null){
 		$h1.update();
- 
 	}
 	if($h2 != null){
-		$h2.update();	
-
+		$h2.update();
 	}
 	if($h3 != null){
 		$h3.update();	
- 	
-
 	}
 	if($h4 != null){
 		$h4.update();	
-
 	}
 	
 end
@@ -559,7 +554,6 @@ then
 	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
 	Hypothesis $h3 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueeuropeia", "true");
 	Hypothesis $h4 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "ascosferiose", "true");
-
 
     if($h1 != null){
 		$h1.update();

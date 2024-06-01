@@ -6,7 +6,7 @@ import org.engcia.cf.listeners.TrackingAgendaListener;
 import org.engcia.cf.model.Evidence;
 
 rule "r1:Acaros vermelhos nas abelhas"
-@CF(-0.75)
+@CF(0.75)
 lock-on-active true
 when
 	Evidence( description == "Acaros vermelhos nas abelhas", value == "true" )
@@ -15,7 +15,7 @@ then
 	$h.update();
 end
 rule "r2:Deformidades nas asas"
-@CF(-0.50)
+@CF(0.50)
 lock-on-active true
 when
 	$e: Evidence( description == "Deformidades nas asas", value == "true" )
@@ -25,7 +25,7 @@ then
 end
 
 rule "r3:Diminuicao de produtividade"
-@CF(-0.30)
+@CF(0.30)
 lock-on-active true
 when
 	$e: Evidence( description == "Diminuicao de produtividade", value == "true" )
@@ -57,7 +57,7 @@ then
 end
 
 rule "r4:Mortalidade aumentada"
-@CF(-0.30)
+@CF(0.30)
 lock-on-active true
 when
 	$e: Evidence( description == "Mortalidade aumentada", value == "true" )

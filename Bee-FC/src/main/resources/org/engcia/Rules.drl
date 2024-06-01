@@ -634,8 +634,7 @@ then
     if($h1 != null){
 		$h1.update();
 
-	}
-	if($h2 != null){
+	}	if($h2 != null){
 		$h2.update();
 
 	}

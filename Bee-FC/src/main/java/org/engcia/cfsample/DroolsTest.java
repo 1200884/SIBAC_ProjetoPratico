@@ -51,7 +51,7 @@ public class DroolsTest {
             while(b==true){
             System.out.println("Em que estação do ano se encontra?");
             estacao = scanner.nextLine();
-            if (estacao.equalsIgnoreCase("Verão")) {
+            if (estacao.equalsIgnoreCase("Verao")) {
                 kSession.insert(new Evidence(CfObsVerao, "Verao", "true"));
                 kSession.fireAllRules();
                 b=false;

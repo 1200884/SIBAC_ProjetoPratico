@@ -55,24 +55,28 @@ public class DroolsTest {
                 kSession.insert(new Evidence(CfObsVerao, "Verao", "true"));
                 kSession.fireAllRules();
                 b=false;
-
+                break;
             }
             if (estacao.equalsIgnoreCase("Inverno")) {
                 kSession.insert(new Evidence(CfObsInverno, "Inverno", "true"));
                 kSession.fireAllRules();
                 b=false;
+                break;
 
             }
             if (estacao.equalsIgnoreCase("Outono")) {
                 kSession.insert(new Evidence(CfObsOutono, "Outono", "true"));
                 kSession.fireAllRules();
                 b=false;
+                break;
 
             }
             if (estacao.equalsIgnoreCase("Primavera")) {
                 kSession.insert(new Evidence(CfObsPrimavera, "Primavera", "true"));
                 kSession.fireAllRules();
                 b=false;
+                break;
+
             }
             System.out.println("Por favor introduza uma estação do ano.");
         }

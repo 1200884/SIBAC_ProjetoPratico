@@ -369,19 +369,6 @@ then
 	}
 end
 
-rule "r28:Abdomen inchado"
-@CF(0.60)
-lock-on-active true
-when
-	$e: Evidence( description == "Abdomen inchado", value == "true" )
-then
-    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapiose", "true");
-
-    if($h != null){
-		$h.update();
-
-	}
-end
 
 rule "r29:Abelhas arrastando-se"
 @CF(0.30)

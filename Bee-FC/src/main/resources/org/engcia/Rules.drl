@@ -162,18 +162,7 @@ then
 
 	}
 end
-rule "r15:Criacao mal semeada"
-@CF(0.40)
-lock-on-active true
-when
-	$e: Evidence( description == "Criacao mal semeada", value == "true" )
-then
-	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
 
-    if($h != null){
-		$h.update();			
-	}
-end
 
 rule "r16:Mau cheiro (cheiro a cola de sapateiro)"
 @CF(0.55)
@@ -799,18 +788,7 @@ then
 
 	}
 end
-rule "rN15:N Criacao mal semeada"
-@CF(-0.40)
-lock-on-active true
-when
-	$e: Evidence( description == "N Criacao mal semeada", value == "true" )
-then
-	Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "loqueamericana", "true");
 
-    if($h != null){
-		$h.update();			
-	}
-end
 
 rule "rN16:N Mau cheiro (cheiro a cola de sapateiro)"
 @CF(-0.55)
@@ -1006,19 +984,6 @@ then
 	}
 end
 
-rule "rN28:N Abdomen inchado"
-@CF(-0.60)
-lock-on-active true
-when
-	$e: Evidence( description == "N Abdomen inchado", value == "true" )
-then
-    Hypothesis $h = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "acarapiose", "true");
-
-    if($h != null){
-		$h.update();
-
-	}
-end
 
 rule "rN29:N Abelhas arrastando-se"
 @CF(-0.30)

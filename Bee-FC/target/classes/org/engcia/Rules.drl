@@ -509,13 +509,17 @@ when
 then
 	Hypothesis $h1 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "varroa", "true");
 	Hypothesis $h2 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "nosemose", "true");
-	
+	Hypothesis $h3 = (Hypothesis)TrackingAgendaListener.getFactRef(Hypothesis.class, "fome", "true");
 	if($h1 != null){
 		$h1.update();
 
 	}
 	if($h2 != null){
 		$h2.update();
+
+	}
+	if($h3 != null){
+		$h3.update();
 
 	}
 end

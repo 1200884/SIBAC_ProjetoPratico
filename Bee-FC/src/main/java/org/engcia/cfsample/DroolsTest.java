@@ -164,6 +164,24 @@ public class DroolsTest {
             for (Object obj : hypotheses) {
                 if (obj instanceof Hypothesis) {
                     Hypothesis hypothesis = (Hypothesis) obj;
+                    if (hypothesis.getDescription().equalsIgnoreCase("loqueamericana") && (hypothesis.getCf() > 0.75)) {
+                        for (Object obj1 : hypotheses) {
+                            if (obj1 instanceof Hypothesis) {
+                                Hypothesis hypothesis1 = (Hypothesis) obj1;
+                                if (hypothesis1.getDescription().equalsIgnoreCase("loqueeuropeia") && (hypothesis1.getCf() > 0.75)) {
+                                    System.out.println("Diagnóstico Finalizado! O diagnóstico aponta para loque americana e loque europeia");
+                                    System.out.println("Grau de confiança mínimo: " + String.format("%.2f", hypothesis1.getCf() * 100) + "%");
+            
+                                    System.exit(0);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            for (Object obj : hypotheses) {
+                if (obj instanceof Hypothesis) {
+                    Hypothesis hypothesis = (Hypothesis) obj;
                     if (hypothesis.getDescription().equalsIgnoreCase("loqueeuropeia") && (hypothesis.getCf() > 0.75)) {
                         System.out.println("Diagnóstico Finalizado! Trata-se de loque europeia");
                         System.out.println("Grau de confiança mínimo: " + String.format("%.2f", hypothesis.getCf() * 100) + "%");
@@ -183,6 +201,7 @@ public class DroolsTest {
                     }
                 }
             }
+           
             if (!MauCheiro.equalsIgnoreCase("Sim") && !TesteDoPalito.equalsIgnoreCase("Sim")) { //RIP Loque Americana
                 System.out.println("Foi identificado o opérculo afundado?");
                 OperculoAfundado = scanner.nextLine();
